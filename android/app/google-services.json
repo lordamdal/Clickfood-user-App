@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1095185489056",
+    "project_id": "clickfoodcm",
+    "storage_bucket": "clickfoodcm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095185489056:android:9e4ff0b6d63e2f3b657dc5",
+        "android_client_info": {
+          "package_name": "com.ntsoft.clickfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095185489056-91bdsq1uvf4r21qahmr28noqp2cqqigp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFcyZ-xHZchnJO1qLD6I3_fentI1ioOvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095185489056-91bdsq1uvf4r21qahmr28noqp2cqqigp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1095185489056-a77k8jp1c7algm177r4vrhib4crau2u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ntsoft.clickfood"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
