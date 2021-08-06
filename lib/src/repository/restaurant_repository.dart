@@ -166,3 +166,21 @@ Future<Review> addRestaurantReview(Review review, Restaurant restaurant) async {
     return Review.fromJSON({});
   }
 }
+
+Future<Stream<Restaurant>> getAllRestaurants() async{
+  Uri uri = Helper.getUri('api/restaurants');
+  Map<String, dynamic> _queryParams = {'name': "asc"};
+  uri = uri.replace(queryParameters: _queryParams);
+  try {
+    final client = new http.Client();
+    final streamedRest = await client.send(http.Request('get', uri));
+    print("this is all restaurant $uri");
+
+    return streamedRest.stream.transform(utf8.decoder).transform(json.decoder).map((data) => Helper.getData(data)).expand((data) => (data as List)).map((data) {
+      return Restaurant.fromJSON(data);
+    });
+  } catch (e) {
+    print(CustomTrace(StackTrace.current, message: uri.toString()).toString());
+    return new Stream.value(new Restaurant.fromJSON({}));
+  }
+}

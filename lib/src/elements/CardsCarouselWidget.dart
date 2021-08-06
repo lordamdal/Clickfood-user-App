@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/elements/CardsWidgetNew.dart';
 
 import '../elements/CardsCarouselLoaderWidget.dart';
 import '../models/restaurant.dart';
@@ -41,7 +42,7 @@ class _CardsCarouselWidgetState extends State<CardsCarouselWidget> {
                           heroTag: widget.heroTag,
                         ));
                   },
-                  child: CardWidget(restaurant: widget.restaurantsList.elementAt(index), heroTag: widget.heroTag),
+                  child: CardWidgetNew(restaurant: widget.restaurantsList.elementAt(index), heroTag: widget.heroTag),
                 );
               },
             ),

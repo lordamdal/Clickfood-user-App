@@ -31,7 +31,7 @@ class SplashScreenState extends StateMVC<SplashScreen> {
       });
       if (progress == 100) {
         try {
-          Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+          Navigator.of(context).pushReplacementNamed('/Pages', arguments: 0);
         } catch (e) {}
       }
     });
@@ -52,7 +52,7 @@ class SplashScreenState extends StateMVC<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/img/logo.png',
+                'assets/img/splash.png',
                 width: 150,
                 fit: BoxFit.cover,
               ),

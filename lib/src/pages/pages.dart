@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/elements/SearchBarWidget.dart';
+import 'package:food_delivery_app/src/elements/SearchHomeWidget.dart';
+import 'package:food_delivery_app/src/pages/profile.dart';
 
 import '../elements/DrawerWidget.dart';
 import '../elements/FilterWidget.dart';
@@ -27,7 +30,7 @@ class PagesWidget extends StatefulWidget {
         currentTab = int.parse(currentTab.id);
       }
     } else {
-      currentTab = 2;
+      currentTab = 0;
     }
   }
 
@@ -54,19 +57,19 @@ class _PagesWidgetState extends State<PagesWidget> {
       widget.currentTab = tabItem;
       switch (tabItem) {
         case 0:
-          widget.currentPage = NotificationsWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = HomeWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
         case 1:
           widget.currentPage = MapWidget(parentScaffoldKey: widget.scaffoldKey, routeArgument: widget.routeArgument);
           break;
         case 2:
-          widget.currentPage = HomeWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage =SearchHomeWidget();
           break;
         case 3:
           widget.currentPage = OrdersWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
         case 4:
-          widget.currentPage = MessagesWidget(parentScaffoldKey: widget.scaffoldKey); //FavoritesWidget(parentScaffoldKey: widget.scaffoldKey);
+          widget.currentPage = ProfileWidget(); //FavoritesWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
       }
     });
@@ -85,6 +88,10 @@ class _PagesWidgetState extends State<PagesWidget> {
         body: widget.currentPage,
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedLabelStyle: TextStyle(fontSize: 12),
+          unselectedLabelStyle: TextStyle(fontSize: 12),
           selectedItemColor: Theme.of(context).accentColor,
           selectedFontSize: 0,
           unselectedFontSize: 0,
@@ -100,37 +107,24 @@ class _PagesWidgetState extends State<PagesWidget> {
           // this will be set when a new tab is tapped
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: '',
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.location_on),
-              label: '',
+              icon: Icon(Icons.directions_walk_outlined),
+              label: 'Pickup',
             ),
             BottomNavigationBarItem(
-                label: '',
-                icon: Container(
-                  width: 42,
-                  height: 42,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).accentColor,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                    boxShadow: [
-                      BoxShadow(color: Theme.of(context).accentColor.withOpacity(0.4), blurRadius: 40, offset: Offset(0, 15)),
-                      BoxShadow(color: Theme.of(context).accentColor.withOpacity(0.4), blurRadius: 13, offset: Offset(0, 3))
-                    ],
-                  ),
-                  child: new Icon(Icons.home, color: Theme.of(context).primaryColor),
-                )),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.fastfood),
-              label: '',
+                label: 'Search',
+                icon: Icon(Icons.search_outlined)
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.chat),
-              label: '',
+              icon: new Icon(Icons.receipt_outlined),
+              label: 'Orders',
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.account_circle_outlined),
+              label: 'Account',
             ),
           ],
         ),

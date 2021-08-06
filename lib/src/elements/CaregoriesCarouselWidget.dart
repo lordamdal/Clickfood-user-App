@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/elements/CategoriesCarouselItemWidgetNew.dart';
 
 import '../elements/CategoriesCarouselItemWidget.dart';
 import '../elements/CircularLoadingWidget.dart';
@@ -23,7 +24,7 @@ class CategoriesCarouselWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 double _marginLeft = 0;
                 (index == 0) ? _marginLeft = 20 : _marginLeft = 0;
-                return new CategoriesCarouselItemWidget(
+                return new CategoriesCarouselItemWidgetNew(
                   marginLeft: _marginLeft,
                   category: this.categories.elementAt(index),
                 );
