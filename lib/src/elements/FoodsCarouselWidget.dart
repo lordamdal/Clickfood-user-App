@@ -15,7 +15,7 @@ class FoodsCarouselWidget extends StatelessWidget {
     return foodsList.isEmpty
         ? FoodsCarouselLoaderWidget()
         : Container(
-            height: 210,
+            height: 230,
             color: Theme.of(context).primaryColor,
             padding: EdgeInsets.symmetric(vertical: 10),
             child: ListView.builder(
