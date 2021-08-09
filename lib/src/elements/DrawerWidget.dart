@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/pages/messages.dart';
+import 'package:food_delivery_app/src/pages/notifications.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../generated/l10n.dart';
@@ -13,7 +15,6 @@ class DrawerWidget extends StatefulWidget {
 
 class _DrawerWidgetState extends StateMVC<DrawerWidget> {
   _DrawerWidgetState() : super(ProfileController()) {}
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -64,7 +65,8 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
           ),
           ListTile(
             onTap: () {
-              Navigator.of(context).pushNamed('/Pages', arguments: 0);
+              Navigator.of(context).pushReplacementNamed('/Pages');
+             // Navigator.of(context).pushNamed('/Pages', arguments: 0);
             },
             leading: Icon(
               Icons.home,
@@ -77,7 +79,8 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
           ),
           ListTile(
             onTap: () {
-              Navigator.of(context).pushNamed('/Pages', arguments: 0);
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => NotificationsWidget()));
+            //  Navigator.of(context).pushNamed('/Pages', arguments: 0);
             },
             leading: Icon(
               Icons.notifications,
@@ -116,7 +119,8 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
           ),
           ListTile(
             onTap: () {
-              Navigator.of(context).pushNamed('/Pages', arguments: 4);
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MessagesWidget()));
+             // Navigator.of(context).pushNamed('/Chat',arguments: parentScaffoldKey);
             },
             leading: Icon(
               Icons.chat,
@@ -205,7 +209,7 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
             onTap: () {
               if (currentUser.value.apiToken != null) {
                 logout().then((value) {
-                  Navigator.of(context).pushNamedAndRemoveUntil('/Pages', (Route<dynamic> route) => false, arguments: 2);
+                  Navigator.of(context).pushNamedAndRemoveUntil('/Pages', (Route<dynamic> route) => false, arguments: 0);
                 });
               } else {
                 Navigator.of(context).pushNamed('/Login');

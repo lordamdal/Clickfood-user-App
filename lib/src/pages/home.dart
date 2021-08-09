@@ -255,7 +255,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
               ),
               CardsCarouselWidget(
                   restaurantsList: _con.popularRestaurants,
-                  heroTag: 'home_top_restaurants'),
+                  heroTag: 'home_popular_restaurants'),
               // Padding(
               //   padding: const EdgeInsets.symmetric(horizontal: 20),
               //   child: GridWidget(

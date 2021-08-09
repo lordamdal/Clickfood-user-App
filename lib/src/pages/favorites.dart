@@ -30,10 +30,11 @@ class _FavoritesWidgetState extends StateMVC<FavoritesWidget> {
     return Scaffold(
       key: _con.scaffoldKey,
       appBar: AppBar(
-        leading: new IconButton(
-          icon: new Icon(Icons.sort, color: Theme.of(context).hintColor),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
+        leading: new IconButton(icon: Icon(Icons.arrow_back_outlined), onPressed: (){Navigator.pop(context);}),
+        // leading: new IconButton(
+        //   icon: new Icon(Icons.sort, color: Theme.of(context).hintColor),
+        //   onPressed: () => Scaffold.of(context).openDrawer(),
+        // ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,

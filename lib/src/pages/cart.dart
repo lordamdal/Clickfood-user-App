@@ -42,17 +42,18 @@ class _CartWidgetState extends StateMVC<CartWidget> {
         bottomNavigationBar: CartBottomDetailsWidget(con: _con),
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              if (widget.routeArgument != null) {
-                Navigator.of(context).pushReplacementNamed(widget.routeArgument.param, arguments: RouteArgument(id: widget.routeArgument.id));
-              } else {
-                Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
-              }
-            },
-            icon: Icon(Icons.arrow_back),
-            color: Theme.of(context).hintColor,
-          ),
+          leading: new IconButton(icon: Icon(Icons.arrow_back_outlined), onPressed: (){Navigator.pop(context);}),
+          // leading: IconButton(
+          //   onPressed: () {
+          //     if (widget.routeArgument != null) {
+          //       Navigator.of(context).pushReplacementNamed(widget.routeArgument.param, arguments: RouteArgument(id: widget.routeArgument.id));
+          //     } else {
+          //       Navigator.of(context).pushReplacementNamed('/Pages', arguments: 0);
+          //     }
+          //   },
+          //   icon: Icon(Icons.arrow_back),
+          //   color: Theme.of(context).hintColor,
+          // ),
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,

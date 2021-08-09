@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/elements/SearchResultWidgetHome.dart';
 
-import '../../generated/l10n.dart';
-import '../elements/SearchWidget.dart';
-import 'SearchResultsWidget.dart';
+
 
 // class SearchBarWidget extends StatelessWidget {
 //   final ValueChanged onClickFilter;
@@ -84,7 +83,7 @@ class SearchHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SearchResultWidget(
+        child: SearchResultWidgetHome(
           heroTag: "search",
         ),
       ),

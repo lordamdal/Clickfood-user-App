@@ -68,10 +68,11 @@ class _MessagesWidgetState extends StateMVC<MessagesWidget> {
     return Scaffold(
       key: _con.scaffoldKey,
       appBar: AppBar(
-        leading: new IconButton(
-          icon: new Icon(Icons.sort, color: Theme.of(context).hintColor),
-          onPressed: () => widget.parentScaffoldKey.currentState.openDrawer(),
-        ),
+        leading: new IconButton(icon: Icon(Icons.arrow_back_outlined), onPressed: (){Navigator.pop(context);}),
+        // leading: new IconButton(
+        //   icon: new Icon(Icons.sort, color: Theme.of(context).hintColor),
+        //   onPressed: () => widget.parentScaffoldKey.currentState.openDrawer(),
+        // ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
