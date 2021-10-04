@@ -82,7 +82,8 @@ class _CheckoutWidgetState extends StateMVC<CheckoutWidget> {
                         new MonetBilWidget(
                             monetBill: _con.monetBill,
                             con: _con,
-                            onChanged: (creditCard) {
+                            onChanged: (monetbil) {
+                              setState(() { });
                              // _con.updateCreditCard(creditCard);
                             }
                             ),
