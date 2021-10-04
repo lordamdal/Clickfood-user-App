@@ -188,11 +188,17 @@ class _CheckoutWidgetState extends StateMVC<CheckoutWidget> {
                             width: MediaQuery.of(context).size.width - 40,
                             child: FlatButton(
                               onPressed: () async{
-                                _con.monetBill.amount=_con.total.toString();
-                                print("this is total pay ${_con.monetBill.amount}");
-                             //  await MonetbilPay(_con.monetBill);
-                                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => MonetbillPayment(monetBill: _con.monetBill)));
+                                if(_con.monetBill.number==null){
+                                  _con.scaffoldKey?.currentState?.showSnackBar(SnackBar(
+                                    content: Text(S.of(context).enter_mobile),
+                                  ));
+                                }
+                                else{
+                                  _con.monetBill.amount=_con.total.toString();
+                                  print("this is total pay ${_con.monetBill.amount}");
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => MonetbillPayment(monetBill: _con.monetBill)));
 
+                                }
                                 // if (_con.creditCard.validated()) {
                                 //   Navigator.of(context).pushNamed('/OrderSuccess', arguments: new RouteArgument(param: 'Credit Card (Stripe Gateway)'));
                                 // } else {

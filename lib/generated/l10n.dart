@@ -1240,6 +1240,15 @@ class S {
     );
   }
 
+  String get enter_mobile {
+    return Intl.message(
+      'Please enter your mobile number',
+      name: 'enter_mobile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Carts refreshed successfully`
   String get carts_refreshed_successfuly {
     return Intl.message(
