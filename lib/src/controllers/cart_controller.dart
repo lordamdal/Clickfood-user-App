@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/models/MonetBill.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../generated/l10n.dart';
@@ -18,7 +19,7 @@ class CartController extends ControllerMVC {
   double subTotal = 0.0;
   double total = 0.0;
   GlobalKey<ScaffoldState> scaffoldKey;
-
+  MonetBill monetBill=new MonetBill();
   CartController() {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();
   }

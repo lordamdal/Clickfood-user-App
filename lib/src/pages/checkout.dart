@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/elements/monetbilWidget.dart';
+import 'package:food_delivery_app/src/pages/MonetbillPayment.dart';
+import 'package:food_delivery_app/src/repository/order_repository.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../generated/l10n.dart';
@@ -76,40 +79,42 @@ class _CheckoutWidgetState extends StateMVC<CheckoutWidget> {
                           ),
                         ),
                         SizedBox(height: 20),
-                        new CreditCardsWidget(
-                            creditCard: _con.creditCard,
+                        new MonetBilWidget(
+                            monetBill: _con.monetBill,
+                            con: _con,
                             onChanged: (creditCard) {
-                              _con.updateCreditCard(creditCard);
-                            }),
+                             // _con.updateCreditCard(creditCard);
+                            }
+                            ),
                         SizedBox(height: 40),
-                        setting.value.payPalEnabled
-                            ? Text(
-                                S.of(context).or_checkout_with,
-                                style: Theme.of(context).textTheme.caption,
-                              )
-                            : SizedBox(
-                                height: 0,
-                              ),
-                        SizedBox(height: 40),
-                        setting.value.payPalEnabled
-                            ? SizedBox(
-                                width: 320,
-                                child: FlatButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacementNamed('/PayPal');
-                                  },
-                                  padding: EdgeInsets.symmetric(vertical: 12),
-                                  color: Theme.of(context).focusColor.withOpacity(0.2),
-                                  shape: StadiumBorder(),
-                                  child: Image.asset(
-                                    'assets/img/paypal2.png',
-                                    height: 28,
-                                  ),
-                                ),
-                              )
-                            : SizedBox(
-                                height: 0,
-                              ),
+                        // setting.value.payPalEnabled
+                        //     ? Text(
+                        //         S.of(context).or_checkout_with,
+                        //         style: Theme.of(context).textTheme.caption,
+                        //       )
+                        //     : SizedBox(
+                        //         height: 0,
+                        //       ),
+                        // SizedBox(height: 40),
+                        // setting.value.payPalEnabled
+                        //     ? SizedBox(
+                        //         width: 320,
+                        //         child: FlatButton(
+                        //           onPressed: () {
+                        //             Navigator.of(context).pushReplacementNamed('/PayPal');
+                        //           },
+                        //           padding: EdgeInsets.symmetric(vertical: 12),
+                        //           color: Theme.of(context).focusColor.withOpacity(0.2),
+                        //           shape: StadiumBorder(),
+                        //           child: Image.asset(
+                        //             'assets/img/paypal2.png',
+                        //             height: 28,
+                        //           ),
+                        //         ),
+                        //       )
+                        //     : SizedBox(
+                        //         height: 0,
+                        //       ),
                         SizedBox(height: 20),
                       ],
                     ),
@@ -181,20 +186,25 @@ class _CheckoutWidgetState extends StateMVC<CheckoutWidget> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width - 40,
                             child: FlatButton(
-                              onPressed: () {
-                                if (_con.creditCard.validated()) {
-                                  Navigator.of(context).pushNamed('/OrderSuccess', arguments: new RouteArgument(param: 'Credit Card (Stripe Gateway)'));
-                                } else {
-                                  _con.scaffoldKey?.currentState?.showSnackBar(SnackBar(
-                                    content: Text(S.of(context).your_credit_card_not_valid),
-                                  ));
-                                }
+                              onPressed: () async{
+                                _con.monetBill.amount=_con.total.toString();
+                                print("this is total pay ${_con.monetBill.amount}");
+                             //  await MonetbilPay(_con.monetBill);
+                                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => MonetbillPayment(monetBill: _con.monetBill)));
+
+                                // if (_con.creditCard.validated()) {
+                                //   Navigator.of(context).pushNamed('/OrderSuccess', arguments: new RouteArgument(param: 'Credit Card (Stripe Gateway)'));
+                                // } else {
+                                //   _con.scaffoldKey?.currentState?.showSnackBar(SnackBar(
+                                //     content: Text(S.of(context).your_credit_card_not_valid),
+                                //   ));
+                                // }
                               },
                               padding: EdgeInsets.symmetric(vertical: 14),
                               color: Theme.of(context).accentColor,
                               shape: StadiumBorder(),
                               child: Text(
-                                S.of(context).confirm_payment,
+                                S.of(context).proceed,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(color: Theme.of(context).primaryColor),
                               ),

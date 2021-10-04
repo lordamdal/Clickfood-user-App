@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:food_delivery_app/src/models/MonetBill.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
 
@@ -115,4 +116,37 @@ Future<Order> cancelOrder(Order order) async {
   } else {
     throw new Exception(response.body);
   }
+}
+
+
+Future<MonetBill> MonetbilPayApi(MonetBill monetBill) async {
+  Map params = monetBill.toMap();;
+  final String url = 'https://api.monetbil.com/payment/v1/placePayment';
+  print(url);
+  print(json.encode(params));
+
+  final client = new http.Client();
+  final response = await client.post(
+    url,
+    headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    body: json.encode(params),
+  );
+  print(response.body);
+  return MonetBill.fromJSON(json.decode(response.body));
+}
+
+Future<MonetBill> MonetbilCheckApi(MonetBill monetBill) async {
+  Map params = monetBill.toCheck();
+  final String url = 'https://api.monetbil.com/payment/v1/checkPayment';
+  print(url);
+  print(json.encode(params));
+
+  final client = new http.Client();
+  final response = await client.post(
+    url,
+  //  headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+    body: params,
+  );
+  print(response.body);
+  return MonetBill.fromJSON(json.decode(response.body));
 }

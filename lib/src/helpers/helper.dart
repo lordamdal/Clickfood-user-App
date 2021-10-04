@@ -289,6 +289,17 @@ class Helper {
     return result;
   }
 
+  static String getMobileNumber(String number) {
+    String result;
+    if(number==null){
+      result='';
+    }
+    else{
+      result=number;
+    }
+    return result;
+  }
+
   static Uri getUri(String path) {
     String _path = Uri.parse(GlobalConfiguration().getValue('base_url')).path;
     if (!_path.endsWith('/')) {

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/src/models/MonetBill.dart';
+import 'package:food_delivery_app/src/models/route_argument.dart';
+import 'package:food_delivery_app/src/repository/order_repository.dart';
 
 import '../../generated/l10n.dart';
 import '../models/cart.dart';
@@ -17,7 +20,7 @@ class CheckoutController extends CartController {
   Payment payment;
   CreditCard creditCard = new CreditCard();
   bool loading = true;
-
+  bool paymentCompleted=false;
   CheckoutController() {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();
     listenForCreditCard();
@@ -71,4 +74,27 @@ class CheckoutController extends CartController {
       ));
     });
   }
+
+  void Monetbilpay(MonetBill monetBill1) async{
+    monetBill = await orderRepo.MonetbilPayApi(monetBill1);
+    monetBill.number=monetBill1.number;
+    setState((){
+      print("this is payment id: ${monetBill.paymentId}");
+      print("this is payment id: ${monetBill.number}");
+    });
+  }
+
+  void CheckPayment(MonetBill monetBill1) async{
+    final check= await MonetbilCheckApi(monetBill1);
+    if(check.message=='payment pending'){
+      scaffoldKey?.currentState?.showSnackBar(SnackBar(
+        content: Text(S.of(context).verify_your_payment),
+      ));
+    }
+    else{
+      Navigator.of(context).pushNamed('/OrderSuccess', arguments: new RouteArgument(param: 'Monetbil'));
+      //Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => MonetbillPayment(monetBill: _con.monetBill)));
+    }
+  }
+
 }

@@ -203,6 +203,15 @@ class S {
     );
   }
 
+  String get paymentConfirmation {
+    return Intl.message(
+      'Payment Confirmation',
+      name: 'paymentConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Payment Mode`
   String get payment_mode {
     return Intl.message(
@@ -258,6 +267,15 @@ class S {
     return Intl.message(
       'Confirm Payment',
       name: 'confirm_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get proceed {
+    return Intl.message(
+      'Proceed',
+      name: 'proceed',
       desc: '',
       args: [],
     );
@@ -1213,6 +1231,15 @@ class S {
     );
   }
 
+  String get verify_your_payment {
+    return Intl.message(
+      'Your payment is not completed yet',
+      name: 'verify_your_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Carts refreshed successfully`
   String get carts_refreshed_successfuly {
     return Intl.message(
@@ -1983,6 +2010,15 @@ class S {
     );
   }
 
+  String get monetbill {
+    return Intl.message(
+      'Monetbil',
+      name: 'Monetbil',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `MasterCard`
   String get mastercard {
     return Intl.message(
@@ -2018,6 +2054,15 @@ class S {
     return Intl.message(
       'Click to pay with your Visa Card',
       name: 'click_to_pay_with_your_visa_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get click_to_pay_with_your_mobile {
+    return Intl.message(
+      'Click to pay with your mobile',
+      name: 'click_to_pay_with_your_mobile',
       desc: '',
       args: [],
     );
@@ -2093,11 +2138,29 @@ class S {
     );
   }
 
+  String get mobile_number {
+    return Intl.message(
+      'MOBILE NUMBER',
+      name: 'mobile_number',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `EXPIRY DATE`
   String get expiry_date {
     return Intl.message(
       'EXPIRY DATE',
       name: 'expiry_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get payment_id {
+    return Intl.message(
+      'Payment ID',
+      name: 'payment_id',
       desc: '',
       args: [],
     );
@@ -2112,6 +2175,8 @@ class S {
       args: [],
     );
   }
+
+
 
   /// `Your credit card not valid`
   String get your_credit_card_not_valid {
