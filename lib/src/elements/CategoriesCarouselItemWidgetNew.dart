@@ -50,10 +50,7 @@ class CategoriesCarouselItemWidgetNew extends StatelessWidget {
             child: Text(
               category.name,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500
-              ),
+                style: Theme.of(context).textTheme.bodyText2
               //style: Theme.of(context).textTheme.bodyText2,
             ),
           ),

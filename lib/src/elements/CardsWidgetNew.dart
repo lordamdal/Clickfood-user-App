@@ -51,7 +51,7 @@ class CardWidgetNew extends StatelessWidget {
             ),
           ),
           SizedBox(height: 5),
-          Text(restaurant.name,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),),
+          Text(restaurant.name,style: Theme.of(context).textTheme.subtitle1),
           Text(
             Helper.skipHtml(restaurant.description),
             overflow: TextOverflow.fade,

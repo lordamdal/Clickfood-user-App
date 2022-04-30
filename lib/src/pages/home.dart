@@ -84,10 +84,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
                         Expanded(
                           child: Text(
                             S.of(context).top_restaurants,
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                            style: Theme.of(context).textTheme.headline3,
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -176,10 +173,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
                         Expanded(
                           child: Text(
                             S.of(context).most_popular,
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                            style: Theme.of(context).textTheme.headline3,
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -275,10 +269,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
                         Expanded(
                           child: Text(
                             S.of(context).trending_this_week,
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                            style: Theme.of(context).textTheme.headline3,
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.fade,
@@ -365,10 +356,7 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
                         Expanded(
                           child: Text(
                             "All Restaurants",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                            style: Theme.of(context).textTheme.headline3,
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.fade,
